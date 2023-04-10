@@ -32,4 +32,4 @@ Editable fields: Subject, Description, Open status. With created and last update
 ![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/deleteissue.gif)
 
 
-
+(GIFs created with the use of screenToGIF, another side project of mine)
