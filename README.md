@@ -26,6 +26,9 @@ Individual project pages with an overview of all current issues.
 Creation, deletion and editing of individual issues in each project.
 Editable fields: Subject, Description, Open status. With created and last updated statistics.
 
+![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/post%20an%20issue.gif)
+
+
 ![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/deleteissue.gif)
 
 
