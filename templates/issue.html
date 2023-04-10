@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content_1 %}
+<div class="navbar-nav">
+    <a class="nav-item nav-link" href="{{url_for('get_project_page',projectName=issue.project)}}">Back to Project Home</a>
+</div>
+{% endblock %}
+{% block content %}
+	<issue class="media content-section">
+	    <div class="media-body">
+	        <p class="mr-2" >
+				<p>Subject - {{issue.subject}}</p>
+				<p>Description - {{issue.description}}</br>posted on -{{issue.date_posted}}</p>
+			</p>
+		
+			<small class="text-muted">
+            		<a class="ml-2" href="{{url_for('update_issue',issue_id=issue.id, projectName=projectName)}}">update</a>
+            		<a class="button" href="#popup1" >delete</a>
+                        <div id="popup1" class="overlay">
+                            <div class="popup">
+                                <a class="close" href="#">&times;</a>
+                                Press delete to delete  the {{issue.subject}} issue.
+                                <div class="content">
+                              <button onclick="myFunction()">delete</button>
+
+                        <p id="demo"></p>
+                                </div>
+                            </div>
+                        </div>
+<script>
+
+function myFunction() {
+  window.open("{{url_for('delete_issue',issue_id=issue.id, projectName=projectName)}}","_self");
+}
+</script>
+        		</small><br />
+
+		</div>
+
+	</issue>
+
+{% endblock content %}

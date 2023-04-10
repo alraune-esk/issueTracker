@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ title }}</h1>
+
+
+
+<div class="container">
+        
+    <h3>Outstanding Issues/Bugs</h3>
+    <hr>
+    <table id="data" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            
+            <th>Created At</th>
+            <th>Last Updated</th>
+            <form action="{{url_for("get_project_page", projectName=project) }}" method=post>
+            <th><button class="btn btn-outline-info" type="submit"name="newIssue" value="newIssue" formmethod="POST"> New Issue </button></th>
+            </form>
+          </tr>
+        </thead>
+        <tbody>
+          {% for issue in issues %}
+            <tr>
+              <td><a href="{{url_for("issue", issue_id=issue.id, projectName=issue.project)}}">{{issue.id}}</a></td>
+              <td>{{issue.subject}}</td>
+              
+              <td>{{issue.created_at}}</td>
+              <td>{{issue.last_updated}}</td>
+  
+              
+              <input id="issue_id" name="issue_id" type="hidden" value="{{issue.id}}">
+              <form action="{{ url_for("get_project_page", projectName=issue.project) }}" method=post>
+              <td><button class="btn btn-outline-info" type="submit"name="delete" value="{{issue.id}}" formmethod="POST"> Delete </button></td>
+              
+              </form>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+  {% endblock content %}

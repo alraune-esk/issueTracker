@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3> Issue Tracker for side projects</h3>
+
+    <p> This is the main landing page for the Issue Tracker.
+        An issue tracker or sometimes commonly referred to as a bug tracker is useful as it:
+    </p>
+
+    <ul>
+        <li>Collates current issues/bugs within a specific project context in one place</li>
+        <li>Allows for the management of such refactoring tasks</li>
+        <li>Improves efficiency of developers in testing and reporting on the status of errors</li>
+        <li>Can enforce priority of issues</li>
+        <li>Provides valuable metrics that can help review developmental processes</li>
+    </ul>
+
+    <p> To get started select an existing project or create a new project using the buttons below.
+    </p>
+
+    <div class="container">
+        
+        <h1>{{ title }}</h1>
+        <hr>
+        <table id="data" class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Created At</th>
+                <th>Last Updated</th>
+                <th>Outstanding Issues</th>
+                <form action="{{ url_for("project") }}" method=post>
+                <th><button class="btn btn-outline-info" type="submit"name="newProject" value="newProject" formmethod="POST"> New Project </button></th>
+                </form>
+              </tr>
+            </thead>
+            <tbody>
+              {% for project in projects %}
+                <tr>
+                  <td><a href="{{url_for("get_project_page", projectName=project.name)}}">{{project.name}}</a></td>
+                  <td>{{project.created_at}}</td>
+                  <td>{{project.last_updated}}</td>
+                  <td>{{project.outstanding_issues}}</td>
+      
+                  
+                  <input id="project_id" name="project_id" type="hidden" value="{{project.name}}">
+                  <form action="{{ url_for("project", projectName=project.name) }}" method=post>
+                  <td><button class="btn btn-outline-info" type="submit"name="delete" value="{{project.name}}" formmethod="POST"> Delete </button></td>
+                  <td><button class="btn btn-outline-info" type="submit"name="rename" value="{{project.name}}" formmethod="POST"> Rename </button></td>
+                  </form>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+      {% endblock content %}

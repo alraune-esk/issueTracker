@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content_1 %}
+<div class="navbar-nav">
+    <a class="nav-item nav-link" href="{{url_for('get_project_page',projectName=projectName)}}">Back to Project Home</a>
+</div>
+{% endblock %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ subject}}</legend>
+                <div class="form-group">
+                    {{ form.Name.label(class="form-control-label") }}
+                    {% if form.Name.errors %}
+                        {{ form.Name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                
+                
+            </fieldset>
+            <div class="form-group">
+                <input id="project_id" name="project_id" type="hidden" value={{projectName}}>
+                <form action="{{ url_for("project", projectName=projectName) }}" method=post>
+                    <td><button class="btn btn-outline-info" type="submit"name="post" value="{{projectName}}" formmethod="POST"> Post </button></td>
+                
+                </form>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

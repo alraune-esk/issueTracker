@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content_1 %}
+<div class="navbar-nav">
+    <a class="nav-item nav-link" href="{{url_for('get_project_page',projectName=issue.project)}}">Back to Project Home</a>
+</div>
+{% endblock %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ subject}}</legend>
+                <div class="form-group">
+                    {{ form.Subject.label(class="form-control-label") }}
+                    {% if form.Subject.errors %}
+                        {{ form.Subject(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Subject.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Subject(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group"  >
+
+                    {{ form.Description.label(class="form-control-label") }}
+                    {% if form.Description.errors %}
+                        {{ form.Description(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Description.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.Description(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.Status(class="form-check-input") }}
+                    {{ form.Status.label(class="form-check-label") }}
+                </div>
+                
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
