@@ -19,7 +19,7 @@ Overview of all current projects
 Creation, deletion, retroactive renaming of individual projects.
 Statistics such as creation and last updated dates.
 
-![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/projectoverview.gif)
+![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/overview.gif)
 
 Individual project pages with an overview of all current issues.
 Creation, deletion and editing of individual issues in each project.
