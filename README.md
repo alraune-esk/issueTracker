@@ -13,13 +13,19 @@ This simple Issue Tracker aims to allow the user to add/edit projects and issues
 
 Some of the main features of this app:
 Overview of all current projects
+
+![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/projectoverview.gif)
+
 Creation, deletion, retroactive renaming of individual projects.
 Statistics such as creation and last updated dates.
+
+![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/projectoverview.gif)
 
 Individual project pages with an overview of all current issues.
 Creation, deletion and editing of individual issues in each project.
 Editable fields: Subject, Description, Open status. With created and last updated statistics.
 
+![](https://github.com/alraune-esk/issueTracker/blob/main/demoGIFs/deleteissue.gif)
 
 
 
